@@ -1,0 +1,87 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimg-1 {
+    background-image: url("good.jpg");
+    min-height: 100%;
+}
+.bgimg-4 {
+    background-image: url("good.jpg");
+    min-height: 400px;
+}
+
+.bgimg-2 {
+    background-image: url("neutral.jpg");
+    min-height: 400px;
+}
+
+.bgimg-3 {
+    background-image: url("misguided.jpg");
+    min-height: 400px;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption span.border {
+    text-shadow: 2px 2px rgb(156, 200, 240);
+    padding: 18px;
+    font-size: 50px;
+    font-family: Georgia;
+    font-weight: 1000;
+    background-color: azure
+}
+
+h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: rgb(156, 200, 240)
+}
+
+ol {
+    text-align: left;
+    list-style-position: inside;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: black
+}
+
+myemail {
+    color: white
+}
+img {
+    width: 50%;
+    height: auto;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+}
