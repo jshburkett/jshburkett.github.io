@@ -85,3 +85,26 @@ img {
     width: 50%;
     height: auto;
 }
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: lightblue;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightblue;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
