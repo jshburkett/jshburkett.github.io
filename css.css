@@ -72,7 +72,7 @@ myemail {
 }
 
 @media only screen and (max-device-width: 1500px) {
-  .parallax {
+    .bgimg-1, .bgimg-2, .bgimg-3{
     background-attachment: scroll;
   }
 }
