@@ -5,7 +5,7 @@ body, html {
     color: #777;
 }
 
-.bgimg-1, .bgimg-2, .bgimg-3 {
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5{
     position: relative;
     opacity: 0.65;
     background-attachment: fixed;
@@ -20,12 +20,22 @@ body, html {
 }
 
 .bgimg-2 {
-    background-image: url("img_parallax_2.jpg");
+    background-image: url("img_parallax_2.jpeg");
     min-height: 400px;
 }
 
 .bgimg-3 {
-    background-image: url("img_parallax_2.jpg");
+    background-image: url("img_parallax_3.jpg");
+    min-height: 400px;
+}
+
+.bgimg-4 {
+    background-image: url("img_parallax_4.jpeg");
+    min-height: 100%;
+}
+
+.bgimg-5 {
+    background-image: url("img_parallax_5.jpeg");
     min-height: 400px;
 }
 
@@ -72,7 +82,7 @@ myemail {
 }
 
 @media only screen and (max-device-width: 1400px) {
-    .bgimg-1, .bgimg-2, .bgimg-3{
+    .bgimg-1, .bgimg-2, .bgimg-3, bgimg-4, .bgimg-5{
     background-attachment: scroll;
   }
 }
