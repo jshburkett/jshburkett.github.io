@@ -31,12 +31,8 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-          
-  apply-label:
-    if: success()
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/github-script@v6
+      - if: success()
+        uses: actions/github-script@v6
         with:
           script: |
             github.rest.issues.addLabels({
@@ -45,6 +41,8 @@ jobs:
               repo: context.repo.repo,
               labels: ['active-staging']
             })
+          
+        
 
   close_pull_request_job:
     if: (github.event_name == 'pull_request' && github.event.action == 'closed') || github.event.pull_request.draft == true
