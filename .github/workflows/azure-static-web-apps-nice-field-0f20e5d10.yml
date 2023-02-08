@@ -41,7 +41,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ['active-staging']
-              color: #AFEEEE
+              color: AFEEEE
             })
       - name: User Friendly Failure
         if: failure()
