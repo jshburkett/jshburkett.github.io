@@ -51,9 +51,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'The build failed because the maximum number of staging sites has been reached. 
-              
-              To have a staging site created for this PR, please close a PR that is using one of the 10 available staging sites. (These should be identifiable with an `active-staging` label) Once one of those slots is freed, click `Details` on the failed build job below. Then click `Re-run jobs` > `Re-run failed jobs`.'
+              body: 'The build failed because the maximum number of staging sites has been reached. To have a staging site created for this PR, please close a PR that is using one of the 10 available staging sites. (These should be identifiable with an `active-staging` label) Once one of those slots is freed, click `Details` on the failed build job below. Then click `Re-run jobs` > `Re-run failed jobs`.'
               })
           
         
