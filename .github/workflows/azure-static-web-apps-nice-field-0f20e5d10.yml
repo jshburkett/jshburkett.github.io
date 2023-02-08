@@ -5,13 +5,13 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened, closed, ready_for_review]
+    types: [opened, synchronize, reopened, closed]
     branches:
       - main
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed' && github.event.action != 'converted_to_draft')
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
@@ -41,12 +41,24 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ['active-staging']
+              color: #AFEEEE
             })
+      - name: User Friendly Failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'The build failed because the maximum number of staging sites has been reached (10). To have a staging site created for this PR, please close a PR that is using one of the available staging sites. (These should be identifiable with an `active-staging` label) Once the close job is complete and one of those slots is freed, click `Details` on the failed build job below. Then click `Re-run jobs` > `Re-run failed jobs`.'
+              })
           
         
 
   close_pull_request_job:
-    if: (github.event_name == 'pull_request' && github.event.action == 'closed') || github.event.pull_request.draft == true
+    if: (github.event_name == 'pull_request' && github.event.action == 'closed')
     runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
