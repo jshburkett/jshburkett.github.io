@@ -47,12 +47,12 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            github.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.name,
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
-              body: "The build failed because the maximum number of staging sites has been reached. To have a staging site created for this PR, please close a PR with an `active-staging` label, then click re-run failed jobs for this PR."
-            })
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'The build failed because the maximum number of staging sites has been reached. To have a staging site created for this PR, please close a PR with an `active-staging` label, then click re-run failed jobs for this PR.'
+              })
           
         
 
