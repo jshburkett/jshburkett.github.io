@@ -31,6 +31,19 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+      - name: Add label to pull request
+        id: addlabel
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pullRequest = context.payload.pull_request;
+            github.issues.addLabels({
+              ...context.repo,
+              issue_number: pullRequest.number,
+              labels: ['active-staging']
+            });
 
   close_pull_request_job:
     if: (github.event_name == 'pull_request' && github.event.action == 'closed') || github.event.pull_request.draft == true
